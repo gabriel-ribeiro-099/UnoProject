@@ -1,105 +1,74 @@
 # Uno
 
-Vídeo de apresentação do projeto:
-https://www.loom.com/share/6dd991e2abef48618560d80ae4c8bfdb
+## How to compile our bot
 
-## Como rodar nosso bot
-
-Compilação:
+Compile:
 ```
 cd modulo
 make all
 ```
-Para rodar o bot_T (nosso executável):
+To run bot_T (our executable):
 
 ```
 cd ..
 ./uno bot_A bot_B modulo/bot_T
 ```
 
-## Introdução
+## Introduction
 
-Esta é uma versão do jogo de baralho Uno, com algumas diferenças:
+This is a version of the Uno card game, with some differences:
 
-A primeira é que este é um jogo baseado em turnos. Ou seja, um jogador só age quando for sua vez. Logo, não haverá a opção de gritar "UNO" quando um jogador tiver apenas uma carta. Essa regra foi deixada de fora.
+The first is that this is a turn-based game. In other words, a player only acts when it is their turn. Therefore, there will be no option to shout "UNO" when a player only has one card. This rule was left out.
 
-A segunda é que ele é jogado com as cartas do baralho tradicional. Ou seja, ao invés de  cores, teremos naipes (copas, espadas, ouro e paus) e, ao invés de cartas especiais (como "Compre duas" ou "Passe a vez"), teremos cartas do baralho como Valete, Damas, Rei, Ás e Coringa. Estas cartas substituem as cartas especiais do Uno, seguindo a correspondência:
-* "COMPRE 4"   : C = CORINGA
-* "COMPRE 2"   : V = VALETE
-* "VOLTA"      : D = DAMA
-* "PULA A VEZ" : R = REI
-* "MUDE A COR" : A = ÀS (muda o naipe)
+The second is that it is played with cards from the traditional deck. In other words, instead of colors, we will have suits (hearts, spades, diamonds, and clubs) and, instead of special cards (such as "Draw two" or "Pass the turn"), we will have deck cards such as Jack, Queens, King, Ace, and Joker. These cards replace the Special One cards, following the correspondence:
+* "BUY 4": C = JOKER
+* "BUY 2": V = JACK
+* "RETURN" : D = LADY
+* "SKIP TURN": R = KING
+* "CHANGE THE COLOR": A = ACE (changes the suit)
 
-A partida será jogada com um único baralho. Assim, teremos quatro cartas de um valor. Por exemplo, 7♥, 7♦, 7♣, 7♠, com exceção do coringa, que há apenas dois: um vermelho e um preto. Porém, para seguir o padrão das cartas, os coringas terão também um naipe, mas serão apenas dos naipes: ♥ (vermelho) e ♣ (preto).
+The game will be played with a single deck. Thus, we will have four cards of one value. For example, 7♥, 7♦, 7♣, 7♠, except the joker, of which there are only two: a red one and a black one. However, to follow the card pattern, the jokers will also have a suit, but they will only be of the suits: ♥ (red) and ♣ (black).
 
-O jogo é gerenciado por um "simulador" que irá controlar o jogo, dando a vez ao bot da rodada. O bot deve ler os dados da entrada-padrão (scanf) no formato especificado pelo simulador, caso contrário ele se perderá e será eliminado da partida. O bot também deve enviar suas ações para o simulador via saída-padrão (printf) no formato esperado pelo simulador, novamente sob pena de ser eliminado da partida.
+The game is managed by a "simulator" that will control the game, giving the round's turn to the bot. The bot must read the data from the standard input (scanf) in the format specified by the simulator, otherwise, it will get lost and be eliminated from the match. The bot must also send its actions to the simulator via standard output (printf) in the format expected by the simulator, again under penalty of being eliminated from the match.
 
-As cartas do baralho sempre são no formato "ValorNaipe".
-Nesse formato, Valor é um dos valores das cartas tradicionais, ou seja, A, 2, 3, 4, 5, 6, 7, 8, 9, 10, V, D, R e C, e Naipe é um dos seguintes naipes: ♥, ♦, ♣, ♠.
+The cards in the deck are always in the "ValueSuit" format.
+In this format, Value is one of the traditional card values, that is, A, 2, 3, 4, 5, 6, 7, 8, 9, 10, V, D, R, and C, and Suit is one of the following suits: ♥, ♦, ♣, ♠.
 
-Os naipes são caracteres no formato ascii estendidos, que possuem uma representação maior que um byte (char). Isso significa que eles deve ser tratados como se fossem strings.
+Suits are characters in extended ascii format, which have a representation greater than one byte (char). This means that they must be treated as if they were strings.
 
-A lógica apresentada nesse template visa ilustrar a entrada e saída de dados de um bot. Cabe a você aprimorar a lógica das ações do seu bot.
+The logic presented in this template aims to illustrate the input and output of data from a bot. It's up to you to improve the logic of your bot's actions.
 
-Bom jogo!!!
+Good game!!!
 
-## Executando o jogo
+## About the project
 
-O gerenciador do jogo Uno se encontra no formato binário do Linux. Então, você precisará executá-lo sobre esse sistema operacional. Se seu computador for Windows, poderá usar o [WSL](https://learn.microsoft.com/pt-br/windows/wsl/install).
+This project was done in collaboration with [Wisla Argolo](https://github.com/wislaargolo) and [Rubens Matheus](https://github.com/RubensMatheus), it was our final assignment for the course "Programming Techniques Introduction" in IMD, and our teacher gave us the following files: bot_A, bot_t, and the uno(simulator), our goal was to build a bot capable of beating bot_A and bot_B, we name our bot bot_T.
 
-Caso não tenha o WSL, nem queira instalá-lo, você poderá executar o jogo também via replit. Assim, você pode tanto baixar os arquivos do github e trabalhar localmente, quanto acessar e trabalhar remotamente pelo replit, como descrito a seguir.
+## What you will find
 
-### Trabalhando localmente
+Our teacher gave us 6 files
 
-Para trabalhar no seu projeto localmente, instale o git (caso não já tenha) e crie um clone do projeto (ou faça um fork) digitando a seguinte linha no terminal (linux):
+- `readme.md`: this file.
+- `bot_A.c`: initial template with explanations for creating a bot.
+- `bot_B.c`: contains the same content as `bot_A.c`, allowing you to have a backup of the explanations.
+- `bot_A`: executable with basic behavior for testing purposes.
+- `bot_B`: same executable `bot_A`, but another name so you can put one to play with the other.
+- `uno`: Uno game manager program.
 
-```sh
-git clone https://github.com/amccampos/uno
-```
+Besides what was given by our teacher, you'll find a folder called "modulo" with our files
 
-Você encontrará 6 arquivos:
-- `readme.md`: este arquivo.
-- `bot_A.c`: template inicial com explicações para a criação de um bot.
-- `bot_B.c`: contém o mesmo conteúdo de `bot_A.c`, permitindo ter um backup das explicações.
-- `bot_A`: executável com um comportamento básico para fins de teste.
-- `bot_B`: mesmo executável `bot_A`, mas outro nome para você poder colocar um para jogar com o outro.
-- `uno`: programa gerenciador do jogo Uno.
+- `auxi.c`: responsible for making actions, like returning and buying cards.
+- `carta.c`: responsible for creating cards and monitoring actions.
+- `debug.c`: a debug file
+- `estrategia.c`: responsible for making strategic decisions, like what card to play.
+- `main.c`: main file, contains all actions, once they are called, the other files are used.
+- `mao.c`: responsible for storing our deck of cards during the game.
+- `bot_T`: Our bot
 
-Os arquivos `uno`, `bot_A` e `bot_B` são executáveis no formato do linux (não funcionam em outro S.O.). Você deve trabalhar, portanto, no Linux ou no WSL (sobre o Windows).
+The files `uno`, `bot_A`, `bot_B` and `bot_T` are executable in the Linux format (they do not work on other OS). You must therefore work on Linux or WSL (over Windows).
 
-Para ter uma ideia do funcionamento do jogo, chame o programa `uno` passando como parâmetro os dois programas-bot que irão jogar na partida.
+To get an idea of how the game works, call the `uno` program by clicking on the button "Run"
 
-```sh
-./uno bot_A bot_B
-```
+https://replit.com/@GABRIELSILVA247/UnoProject?v=1
 
-O console apresentará a sequência de ações realizadas pelos bots.
-
-Para construir teu projeto, edite um dos arquivos `bot_A.c` ou `bot_B.c`. Estes arquivos são templates de um bot rudimentar, mas com instruções preciosas para você começar a implementar teu próprio bot. O arquivo compila e executa normalmente, usando, por exemplo:
-
-```sh
-gcc bot_A.c -o bot_A
-```
-
-Com esse comando, uma nova versão do programa `bot_A` é gerada e pode ser testada com `./uno bot_A bot_B`. Porém, como você verá, o comportamento é simples. O único comportamento que ele tem é descartar a carta A♥ na sua vez. Cabe a você melhorá-lo.
-
-Lembre-se de organizar tua solução em diferentes funções e separando em diferentes módulos (arquivos .c e .h). Você pode, por exemplo, ter um módulo só com operações sobre as cartas do baralho, outro com as funções de raciocínio sobre as cartas que os outros jogadores têm na mão, entre outros.
-
-### Trabalhando no replit
-
-Antes de qualquer coisa, quem for trabalhar no replit terá que criar um fork do projeto que se encontra em https://replit.com/@amccampos/uno. O botão "Fork Repl" fará isso.
-
-Os mesmos encaminhamentos fornecidos para quem for trabalhar localmente são válidos para quem for trabalhar no replit, visto que há também um terminal Linux sobre o qual você poderá trabalhar.
-
-A principal diferença é que você não precisará instalar nada. Além disso, o botão "Play" do projeto está configurado para executar o comando:
-```sh
-./uno bot_A bot_B
-```
-
-Ao clicar no Play, uma nova partida será executada com os bots `bot_A` `bot_B`, levando em conta que eles já foram compilados. A responsabilidade de gerar o executável do seu bot é sua. Portanto, **sempre que você fizer uma alteração no código-fonte de seu bot, certifique-se de compilá-lo antes de clicar no botão Play**.
-
-A forma de compilar é idêntica à compilação de quem trabalha localmente:
-
-```sh
-gcc bot_A.c -o bot_A
-```
+The console will display the sequence of actions performed by the bots.
